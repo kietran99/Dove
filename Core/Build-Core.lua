@@ -1,4 +1,4 @@
-project "Placeholder"
+project "Dove"
     kind "StaticLib"
     language "C++"
     cppdialect "C++latest"
@@ -13,24 +13,24 @@ project "Placeholder"
     }
 
     filter "system:windows"
-        files
-        {
-            "Source/Windows/**.h",
-            "Source/Windows/**.cpp",
-        }
+    files
+    {
+        "Source/Windows/**.h",
+        "Source/Windows/**.cpp",
+    }
 
     filter {}
-    
+
     includedirs
     {
         "Public",
         "Source",
     }
 
-    filter {}  
+    filter {}
 
-    targetdir ("../Binaries/" .. OutputDir .. "/%{prj.name}")
-    objdir ("../Binaries/Intermediates/" .. OutputDir .. "/%{prj.name}")
+    targetdir("../Binaries/" .. OutputDir .. "/%{prj.name}")
+    objdir("../Binaries/Intermediates/" .. OutputDir .. "/%{prj.name}")
 
     filter "system:windows"
         systemversion "latest"
@@ -59,10 +59,12 @@ project "Placeholder"
         optimize "On"
         symbols "Off"
 
+    filter {}
+
     usage "INTERFACE"
-        includedirs
-        {
-            "Public",
-        }
+    includedirs
+    {
+        "Public",
+    }
 
     usage ""
