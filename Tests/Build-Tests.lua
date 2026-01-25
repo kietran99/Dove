@@ -1,59 +1,59 @@
 project "Tests"
-    kind "ConsoleApp"
-    language "C++"
-    cppdialect "C++latest"
-    staticruntime "Off"
-    exceptionhandling "Off"
+kind "ConsoleApp"
+language "C++"
+cppdialect "C++latest"
+staticruntime "Off"
+exceptionhandling "Off"
 
-    files
-    {
-        "*.h",
-        "*.cpp",
-        "Source/Common/**.h",
-        "Source/Common/**.cpp",
-    }
+files
+{
+    "*.h",
+    "*.cpp",
+    "Source/Common/**.h",
+    "Source/Common/**.cpp",
+}
 
-    filter "system:windows"
-        files
-        {
-            "Source/Windows/**.h",
-            "Source/Windows/**.cpp",
-        }
+filter "system:windows"
+files
+{
+    "Source/Windows/**.h",
+    "Source/Windows/**.cpp",
+}
 
-    filter {}
+filter {}
 
-    includedirs
-    {
-        "Source",
-    }
+includedirs
+{
+    "Source",
+}
 
-    uses
-    {
-        "Placeholder",
-    }
+uses
+{
+    "Dove",
+}
 
-    targetdir ("../Binaries/" .. OutputDir .. "/%{prj.name}")
-    objdir ("../Binaries/Intermediates/" .. OutputDir .. "/%{prj.name}")
+targetdir("../Binaries/" .. OutputDir .. "/%{prj.name}")
+objdir("../Binaries/Intermediates/" .. OutputDir .. "/%{prj.name}")
 
-    filter "system:windows"
-        systemversion "latest"
-        defines {}
+filter "system:windows"
+systemversion "latest"
+defines {}
 
-    filter "configurations:Debug"
-        defines { "DEBUG" }
-        runtime "Debug"
-        symbols "On"
+filter "configurations:Debug"
+defines { "DEBUG" }
+runtime "Debug"
+symbols "On"
 
-    filter "configurations:Release"
-        defines { "NDEBUG" }
-        runtime "Release"
-        optimize "On"
-        symbols "On"
+filter "configurations:Release"
+defines { "NDEBUG" }
+runtime "Release"
+optimize "On"
+symbols "On"
 
-    filter "configurations:Dist"
-        defines { "NDEBUG" }
-        runtime "Release"
-        optimize "On"
-        symbols "Off"
+filter "configurations:Dist"
+defines { "NDEBUG" }
+runtime "Release"
+optimize "On"
+symbols "Off"
 
-    filter {}
+filter {}
