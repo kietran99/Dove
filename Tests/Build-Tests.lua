@@ -1,7 +1,7 @@
 project "Tests"
     kind "ConsoleApp"
     language "C++"
-    cppdialect "C++latest"
+    cppdialect "C++23"
     staticruntime "Off"
     exceptionhandling "Off"
 
